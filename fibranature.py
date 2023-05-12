@@ -8,14 +8,14 @@ def pdf_downloader(url, f_path, f_name):
     with open(path, 'wb') as file:
         file.write(response.read())
 
-page_url = "https://fibranatur.fr/2-nos-produits-disolation?page={}"
+page_url = "https://fibranatur.fr/page={}"
 f_path = '/home/reda/Desktop/FIBRANATURE_AT/'
 k = 0
 for i in range(13):
     page = requests.get(page_url.format(i))
     tree = html.fromstring(page.content)
     elems = tree.xpath("//a[contains(@class,'thumbnail product')]")
-    for elem in elems:  
+    for elem in elems:
         page_p = requests.get(elem.attrib.get('href'))
         tree_p = html.fromstring(page_p.content)
         fiches = tree_p.xpath("//a[contains(text(), 'Avis technique')]")

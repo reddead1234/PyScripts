@@ -15,8 +15,7 @@ def pdf_downloader(url,f_path,f_name):
     file.write(response.read())
     file.close()
 
-lien="https://www.udirev.com/sols-pvc/?page=2"
-print('>>>>>>><<<<<<<<<<<<<<<<<<<<<<<>>>>>>>><thumbnail product-thumbnail>>>>>\n'+lien+"\n")
+lien="https://www.udirev.com/?page=2"
 page = requests.get(lien)
 tree = html.fromstring(page.content)
 elems = tree.xpath("//a[contains(@href,'.html')]")
@@ -34,6 +33,6 @@ for elem in elems:
             name = res.headers.get('Content-Disposition').split('filename=')[-1].strip('"')
             # name = emp.split('/')[-1]
             print(link)
-            f_path='/home/reda/Desktop/UDIREV_AT/'
+            f_path='/directory/'
 
             pdf_downloader(link,f_path,name)

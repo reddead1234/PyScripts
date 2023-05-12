@@ -20,7 +20,7 @@ for i in range(0,14):
             page = requests.get(lien)
             tree = html.fromstring(page.content)
             elems = tree.xpath("//a[contains(@href, '/-/')]")
-            for elem in elems:  
+            for elem in elems:
                 emp=elem.attrib.get('href')
                 print(emp)
                 #name = os.path.basename(emp)

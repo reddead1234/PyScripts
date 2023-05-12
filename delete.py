@@ -1,6 +1,6 @@
 import os
 
-directory = "/home/reda/Desktop/ASTRAL_FT/"
+directory = "/DIRECTORY/"
 
 for filename in os.listdir(directory):
     # new_filename="DOP-"+filename
@@ -9,7 +9,7 @@ for filename in os.listdir(directory):
     print(new_filename)
 # import os
 
-# directory = "/home/reda/Desktop/ISOPROC_FT"
+# directory = "/DIREC/"
 
 # for filename in os.listdir(directory):
 #     if not filename.endswith(".pdf"):

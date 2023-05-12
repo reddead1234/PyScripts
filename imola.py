@@ -27,7 +27,7 @@ for i in range (1,6):
 #     if "uploads" in link :
 #             name = os.path.basename(link)
 #             print(name)
-#             f_path='/home/reda/Desktop/URSA_FT/'
+#             f_path='/directory/'
 #             pdf_downloader(link,f_path,name)
 #             k+=1
 #     else:

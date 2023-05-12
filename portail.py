@@ -3,7 +3,7 @@ import requests
 import os
 
 # Define the directory to save the PDFs
-directory = '/home/reda/Desktop/REFIN_DOP/'
+directory = '/directory/'
 
 # Make a request to the website
 for i in range(1,152):
@@ -20,12 +20,12 @@ for i in range(1,152):
     for link in links:
         pdf_link = link.attrib.get('href')
         pdf_name = directory + pdf_link.split("/")[-1]
-        
+
         # Check if the file already exists
         if os.path.exists(pdf_name):
-            print(pdf_name.split("/")[-1] + " already exists. Skipping...")
+            print(pdf_name.split("/")[-1] + " already exists.")
             continue
-        
+
         pdf_response = requests.get(pdf_link)
         with open(pdf_name, 'wb') as pdf_file:
             pdf_file.write(pdf_response.content)

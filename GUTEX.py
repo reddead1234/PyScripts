@@ -15,14 +15,14 @@ def pdf_downloader(url,f_path,f_name):
     file.close()
 
 
-lien="https://gutex.fr/service/telechargements/"
+lien="https://gutex.fr/"
 #print(lien)
 page = requests.get(lien)
 tree = html.fromstring(page.content)
 elems = tree.xpath("//div[@id='panel-485']//a")
 print(elems)
 k=0
-for elem in elems:  
+for elem in elems:
     emp=elem.attrib.get('href')
     k=k+1
     #print(emp)

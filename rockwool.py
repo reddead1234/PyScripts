@@ -13,7 +13,7 @@ def pdf_downloader(url,f_path,f_name):
     file.write(response.read())
     file.close()
 
-url="https://www.rockwool.com/uk/resources-and-tools/product-documentation/#datasheets"
+url="https://www.rockwool.com"
 response = requests.get(url)
 tree = html.fromstring(response.content)
 links = tree.xpath('//a[contains(@href, "datasheet.pdf")]')
@@ -23,6 +23,5 @@ for link in links:
     emp = "https://www.rockwool.com" + emp
     name = os.path.basename(emp)
     k=k+1
-    f_path='/home/reda/Desktop/ROCKWOOL_FT/'
+    f_path='/directory/'
     pdf_downloader(emp,f_path,name)
-print("\n>>>>>>>>>>>>>>>>> K= "+str(k))

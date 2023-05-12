@@ -32,7 +32,7 @@ for link_url in link_urls:
 
         # Check if the file already exists
         if os.path.exists(pdf_name):
-            print(pdf_name.split("/")[-1] + " already exists. Skipping...")
+            print(pdf_name.split("/")[-1] + " already exists.")
             continue
 
         pdf_response = requests.get(pdf_link)

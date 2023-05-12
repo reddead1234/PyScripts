@@ -15,14 +15,14 @@ def pdf_downloader(url,f_path,f_name):
     file.close()
 
 for i in range(1,8):
-    lien="https://www.fermacell.com/en/downloads?documentTypeId=40&language=English,French&page="+str(i)
+    lien="https://www.fermacell.com/&page="+str(i)
     print('>>>>>>><<<<<<<<<<<<<<<<<<<<<<<>>>>>>>><>>>>>\n'+lien+"\n")
     page = requests.get(lien)
     tree = html.fromstring(page.content)
     elems = tree.xpath("//div[class='download']")
     print(elems)
     k=0
-#     for elem in elems:  
+#     for elem in elems:
 #         emp="https://www.fermacell.com"+elem.get_attribute('href')
 #         print(emp)
 #         name = os.path.basename(emp)

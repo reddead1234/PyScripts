@@ -15,22 +15,18 @@ def pdf_downloader(url,f_path,f_name):
     file.close()
 
 
-lien="https://www.steico.com/fr/telechargements/documents/archives-declarations-de-performances"
+lien="https://www.steico.com"
 #print(lien)
 page = requests.get(lien)
 tree = html.fromstring(page.content)
 elems = tree.xpath("//a[contains(@href, '/DoP_Archive/')]")
 k=0
-for elem in elems:  
+for elem in elems:
     emp=elem.attrib.get('href')
     k=k+1
     #print(emp)
     name = os.path.basename(emp)
     print(name)
     link='https://www.steico.com/'+emp
-    f_path='/home/reda/Desktop/STEICO_DOP/'
+    f_path='/directory/'
     pdf_downloader(link,f_path,name)
-print('\n>>>>'+str(k))
-
-
-

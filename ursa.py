@@ -13,7 +13,7 @@ def pdf_downloader(url,f_path,f_name):
     file.write(response.read())
     file.close()
 
-url="https://www.ursa.fr/categories-documentations/fiches-produits/"
+url="https://www.ursa.fr"
 # response = requests.get(url)
 # tree = html.fromstring(response.content)
 # links = tree.xpath("//a[contains(@href, '/wp-content/uploads/')]")
@@ -27,9 +27,8 @@ for link in links:
     if "uploads" in link :
             name = os.path.basename(link)
             print(name)
-            f_path='/home/reda/Desktop/URSA_FT/'
+            f_path='/directory/'
             pdf_downloader(link,f_path,name)
             k+=1
     else:
         continue
-print("\n>>>>>>>>>>>>>>>>> K= "+str(k))

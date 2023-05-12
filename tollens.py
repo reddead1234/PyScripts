@@ -3,10 +3,10 @@ import requests
 import os
 
 # Define the directory to save the PDFs
-directory = '/home/reda/Desktop/TOLLENS_FT/'
+directory = '/directory/'
 
 # Make a request to the website
-url = 'https://www.tollens.com/mediatheque/documentations-peinture?cat=fiche+technique'
+url = 'https://www.tollens.com'
 response = requests.get(url)
 # Parse the HTML content
 tree = html.fromstring(response.content)
@@ -25,7 +25,7 @@ for link in links:
     #     continue
     pdf_response = requests.get(pdf_link)
     try:
-        with open(pdf_name, 'wb') as pdf_file:  
+        with open(pdf_name, 'wb') as pdf_file:
             pdf_file.write(pdf_response.content)
         print("Downloaded: " + pdf_name.split("/")[-1])
     except:

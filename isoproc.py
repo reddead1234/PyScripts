@@ -15,17 +15,17 @@ def pdf_downloader(url,f_path,f_name):
     # file.close()
 
 for i in range(0,108,18):
-            lien="https://www.isoproc.be/solutions-downloads/overview/any/technische-fiches/any/P"+str(i)
-            print('>>>>>>><<<<<<<<<<<<<<<<<<<<<<<>>>>>>>><>>>>>\n'+lien)
+            lien="https://www.isoproc.be/P"+str(i)
+            #print('>>>>>>><<<<<<<<<<<<<<<<<<<<<<<>>>>>>>><>>>>>\n'+lien)
             page = requests.get(lien)
             tree = html.fromstring(page.content)
             elems = tree.xpath("//a[contains(@href, '.pdf?')]")
-            for elem in elems:  
+            for elem in elems:
                 emp=elem.attrib.get('href')
                 #print(emp)
                 temp= elem.text_content()
                 name='k'+temp
-                f_path='/home/reda/Desktop/ISOPROC_FT/'
+                f_path='/DDIRECTORY'
                 try:
                     pdf_downloader(emp,f_path,name)
                 except:

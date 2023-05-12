@@ -8,4 +8,3 @@ for filename in os.listdir(directory):
         new_filename = filename.split("Notice",1)[0] + '_fiche_technique.pdf'
         print(new_filename)
         os.rename(os.path.join(directory, filename), os.path.join(directory, new_filename))
-print("All files have been renamed")

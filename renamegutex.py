@@ -3,7 +3,7 @@ import re
 import os
 
 
-pdf_filenames = glob.glob('/home/reda/Desktop/GUTEX_FT/*.pdf')
+pdf_filenames = glob.glob('/directory/*.pdf')
 for pdf_filename in pdf_filenames:
 	#print(pdf_filename)
 	#temp=re.sub('(^[^D]*)','',pdf_filename)

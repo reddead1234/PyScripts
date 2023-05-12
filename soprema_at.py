@@ -15,7 +15,7 @@ def pdf_downloader(url,f_path,f_name):
 
 def uss(f_path,searchText):#URSA-Soprema-Siniat
     for i in range(1,3):
-        website='https://www.soprema.fr/fr/documentation/search-strict-product?query=&query_type=18&language=&document_page='+str(i)
+        website='https://www.soprema.fr/_page='+str(i)
         html_p = urllib.request.urlopen(website)
         text = html_p.read()
         plaintext = text.decode('utf8')
@@ -32,4 +32,4 @@ def uss(f_path,searchText):#URSA-Soprema-Siniat
             else:
                 continue
         print("\nPAGE  "+str(i)+"  IS DONE")
-uss("/home/reda/Desktop/SOPREMA_AT/","File")
+uss("/directory/","File")

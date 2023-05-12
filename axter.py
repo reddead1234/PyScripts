@@ -5,7 +5,7 @@ import os
 # Define the directory to save the PDFs
 directory = '/DIRECTORY/'
 # Make a request to the website
-url = 'https://www.axter.eu/avis-technique/fiches-techniques-produits/'
+url = 'https://www.axter.eu/'
 response = requests.get(url)
 # Parse the HTML content
 tree = html.fromstring(response.content)
