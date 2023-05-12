@@ -1,0 +1,32 @@
+from lxml import html
+import requests
+import os
+
+# Define the directory to save the PDFs
+directory = '/home/reda/Desktop/TOLLENS_FT/'
+
+# Make a request to the website
+url = 'https://www.tollens.com/mediatheque/documentations-peinture?cat=fiche+technique'
+response = requests.get(url)
+# Parse the HTML content
+tree = html.fromstring(response.content)
+# Find all <a> elements that match the criteria
+links = tree.xpath('//a[contains(@href, "/download/")]')
+# Download the links
+for link in links:
+    pdf_link = "https://www.tollens.com/"+link.attrib.get('href')
+    pdf_name = name = os.path.basename(pdf_link)
+    print(pdf_name)
+    # pdf_name = pdf_name.replace("®","").replace("é","e").strip().replace(" ","_").replace("è","e")
+    pdf_name = directory+pdf_name
+    # print(pdf_name)
+    # if os.path.exists(pdf_name):
+    #     print(pdf_name.split("/")[-1] + " already exists. Skipping...")
+    #     continue
+    pdf_response = requests.get(pdf_link)
+    try:
+        with open(pdf_name, 'wb') as pdf_file:  
+            pdf_file.write(pdf_response.content)
+        print("Downloaded: " + pdf_name.split("/")[-1])
+    except:
+        print("NOT Downloaded: " + pdf_name.split("/")[-1])
